@@ -1,26 +1,23 @@
 {
-    "name": "boilerplate",
+    "name": "render-apib-html",
     "version": "0.0.1",
-    "description": "NodeJS Boilerplate with precommit test and linting configured",
+    "description": "Serverless rendering of api blueprint files as styled html",
     "author": "iamogbz",
     "repository": {
         "type": "git",
-        "url": "https://github.com/iamogbz/node-js-boilerplate"
+        "url": "https://github.com/iamogbz/render-apib-html"
     },
     "bugs": {
-        "url": "https://github.com/iamogbz/node-js-boilerplate/issues"
+        "url": "https://github.com/iamogbz/render-apib-html/issues"
     },
-    "homepage": "https://github.com/iamogbz/node-js-boilerplate#readme",
+    "homepage": "https://github.com/iamogbz/render-apib-html#readme",
     "license": "GPL-3.0",
     "keywords": [
-        "node",
-        "nodejs",
-        "boilerplate",
-        "testing",
-        "linting",
-        "ci",
-        "package",
-        "npm"
+        "apib",
+        "html",
+        "render",
+        "serverless",
+        "cloudfront"
     ],
     "engines": {
         "node": ">=8",
@@ -101,7 +98,7 @@
         "lint-staged": "^9.0.0",
         "prettier": "^1.16.4",
         "rxjs": "^6.4.0",
-        "semantic-release": "^15.13.3",
+        "semantic-release": "^15.13.19",
         "stylelint": "^10.0.0",
         "stylelint-config-standard": "^18.2.0",
         "stylelint-config-styled-components": "^0.1.1",

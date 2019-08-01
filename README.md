@@ -1,11 +1,11 @@
-# NodeJS Boilerplate
+# Render APIB HTML
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/iamogbz/node-js-boilerplate.svg)](https://greenkeeper.io/)
-[![Dependencies](https://david-dm.org/iamogbz/node-js-boilerplate.svg)](https://github.com/iamogbz/node-js-boilerplate)
-[![Build Status](https://travis-ci.org/iamogbz/node-js-boilerplate.svg?branch=master)](https://travis-ci.org/iamogbz/node-js-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/iamogbz/node-js-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/node-js-boilerplate?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/iamogbz/render-apib-html.svg)](https://greenkeeper.io/)
+[![Dependencies](https://david-dm.org/iamogbz/render-apib-html.svg)](https://github.com/iamogbz/render-apib-html)
+[![Build Status](https://travis-ci.org/iamogbz/render-apib-html.svg?branch=master)](https://travis-ci.org/iamogbz/render-apib-html)
+[![Coverage Status](https://coveralls.io/repos/github/iamogbz/render-apib-html/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/render-apib-html?branch=master)
 
-Simple node js package with linting, testing and building preconfigured
+Serverless rendering of api blueprint files as styled html
 
 ## Shell Commands
 
