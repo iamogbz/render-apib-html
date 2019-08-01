@@ -20,11 +20,3 @@ npm run commit    # run commitizen
 ```sh
 npm run build     # webpack build
 ```
-
-### Typescript
-
-```sh
-make typescript
-```
-
-[Example conversion](https://github.com/iamogbz/node-js-boilerplate/compare/typescript-conversion)
