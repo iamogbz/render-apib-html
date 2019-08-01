@@ -1,18 +1,23 @@
 {
-    "name": "project-name",
+    "name": "render-apib-html",
     "version": "0.0.1",
-    "description": "Project description",
-    "author": "project-owner",
+    "description": "Serverless rendering of api blueprint files as styled html",
+    "author": "iamogbz",
     "repository": {
         "type": "git",
-        "url": "https://github.com/project-owner/project-name"
+        "url": "https://github.com/iamogbz/render-apib-html"
     },
     "bugs": {
-        "url": "https://github.com/project-owner/project-name/issues"
+        "url": "https://github.com/iamogbz/render-apib-html/issues"
     },
-    "homepage": "https://github.com/project-owner/project-name#readme",
+    "homepage": "https://github.com/iamogbz/render-apib-html#readme",
     "license": "GPL-3.0",
     "keywords": [
+        "apib",
+        "html",
+        "render",
+        "serverless",
+        "cloudfront"
     ],
     "engines": {
         "node": ">=8",
