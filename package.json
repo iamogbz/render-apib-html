@@ -40,8 +40,9 @@
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
-            "@semantic-release/npm",
-            "@semantic-release/github"
+            "@semantic-release/github",
+            "@semantic-release/changelog",
+            "@semantic-release/git"
         ]
     },
     "jest": {
@@ -86,6 +87,8 @@
         "@commitlint/cli": "^8.1.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@commitlint/travis-cli": "^8.0.0",
+        "@semantic-release/changelog": "^3.0.4",
+        "@semantic-release/git": "^7.0.16",
         "@types/chrome": "0.0.81",
         "@types/copy-webpack-plugin": "^4.4.3",
         "@types/jest": "^24.0.9",
