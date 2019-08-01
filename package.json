@@ -1,0 +1,122 @@
+{
+    "name": "render-apib-html",
+    "version": "0.0.1",
+    "description": "Serverless rendering of api blueprint files as styled html",
+    "author": "iamogbz",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/iamogbz/render-apib-html"
+    },
+    "bugs": {
+        "url": "https://github.com/iamogbz/render-apib-html/issues"
+    },
+    "homepage": "https://github.com/iamogbz/render-apib-html#readme",
+    "license": "GPL-3.0",
+    "keywords": [
+        "apib",
+        "html",
+        "render",
+        "serverless",
+        "cloudfront"
+    ],
+    "engines": {
+        "node": ">=8",
+        "npm": ">=6"
+    },
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint . --ext .js,.ts",
+        "commitlint": "commitlint-travis",
+        "build": "webpack --mode=production",
+        "build-watch": "webpack --mode=development --watch",
+        "test": "jest",
+        "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
+        "typecheck": "tsc --noEmit",
+        "commit": "git-cz",
+        "release": "semantic-release"
+    },
+    "release": {
+        "dryRun": true,
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/github",
+            "@semantic-release/changelog",
+            "@semantic-release/git"
+        ]
+    },
+    "jest": {
+        "preset": "ts-jest",
+        "moduleDirectories": [
+            "./src",
+            "./tests",
+            "./node_modules"
+        ],
+        "testPathIgnorePatterns": [
+            "./artifacts/",
+            "./node_modules/"
+        ],
+        "coverageDirectory": "./artifacts/coverage"
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "npm run lint",
+            "npm test -- --bail --findRelatedTests"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "lint-staged"
+        }
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.7",
+        "@babel/core": "^7.7.7",
+        "@babel/preset-typescript": "^7.7.7",
+        "@commitlint/cli": "^8.3.4",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@commitlint/travis-cli": "^8.3.4",
+        "@semantic-release/changelog": "^3.0.6",
+        "@semantic-release/git": "^8.0.0",
+        "@types/chrome": "0.0.91",
+        "@types/copy-webpack-plugin": "^5.0.0",
+        "@types/jest": "^24.0.25",
+        "@types/node": "^13.1.6",
+        "@types/source-map": "^0.5.2",
+        "@types/webpack": "^4.41.2",
+        "@typescript-eslint/eslint-plugin": "^2.15.0",
+        "@typescript-eslint/parser": "^2.15.0",
+        "acorn": "^7.1.0",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "commitizen": "^4.0.3",
+        "coveralls": "^3.0.9",
+        "cz-conventional-changelog": "^3.0.2",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.0.6",
+        "jest": "^24.9.0",
+        "lint-staged": "^9.5.0",
+        "prettier": "^1.19.1",
+        "prettier-eslint": "^9.0.1",
+        "rxjs": "^6.5.4",
+        "semantic-release": "^16.0.1",
+        "ts-jest": "^24.3.0",
+        "ts-node": "^8.6.0",
+        "typescript": "^3.7.4",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10"
+    }
+}

@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Version published for Lambda@Edge
+Resources:
+  RenderApibHtml:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: main.handler
+      Runtime: nodejs8.10
+      CodeUri: .
+      Description: Version published for Lambda@Edge
+      MemorySize: 512
+      Timeout: 15
+      Role: 'arn:aws:iam::414189248433:role/service-role/RenderApibHtml'
