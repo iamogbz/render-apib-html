@@ -89,7 +89,7 @@
         "@commitlint/travis-cli": "^8.0.0",
         "@semantic-release/changelog": "^3.0.4",
         "@semantic-release/git": "^7.0.16",
-        "@types/chrome": "0.0.87",
+        "@types/chrome": "0.0.88",
         "@types/copy-webpack-plugin": "^4.4.3",
         "@types/jest": "^24.0.9",
         "@types/node": "^12.6.9",
