@@ -87,7 +87,7 @@
         "@commitlint/cli": "^8.1.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@commitlint/travis-cli": "^8.2.0",
-        "@semantic-release/changelog": "^3.0.4",
+        "@semantic-release/changelog": "^3.0.6",
         "@semantic-release/git": "^7.0.18",
         "@types/chrome": "0.0.91",
         "@types/copy-webpack-plugin": "^4.4.3",
