@@ -90,7 +90,7 @@
         "@semantic-release/changelog": "^3.0.6",
         "@semantic-release/git": "^7.0.18",
         "@types/chrome": "0.0.91",
-        "@types/copy-webpack-plugin": "^4.4.3",
+        "@types/copy-webpack-plugin": "^5.0.0",
         "@types/jest": "^24.0.9",
         "@types/node": "^12.6.9",
         "@types/source-map": "^0.5.2",
