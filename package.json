@@ -110,7 +110,7 @@
         "jest": "^24.9.0",
         "lint-staged": "^9.4.3",
         "prettier": "^1.19.1",
-        "prettier-eslint": "^8.8.2",
+        "prettier-eslint": "^9.0.1",
         "rxjs": "^6.5.3",
         "semantic-release": "^15.13.19",
         "ts-jest": "^24.2.0",
