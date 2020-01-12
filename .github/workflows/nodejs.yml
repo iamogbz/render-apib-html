@@ -1,0 +1,33 @@
+name: Node CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - name: Install
+      run: |
+        npm ci
+    - name: Lint
+      run: |
+        npm run lint
+    - name: Test
+      run: |
+        npm test -- --ci --coverage
+    - name: Build
+      run: |
+        npm run build
+    - name: Release
+      run: |
+        npm run release
+      if: github.ref == 'refs/heads/master'
+    - name: Report
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      run: |
+        npm run coveralls
