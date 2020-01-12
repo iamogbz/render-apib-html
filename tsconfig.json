@@ -3,6 +3,7 @@
         "baseUrl": "./src",
         "moduleResolution": "node",
         "outDir": "./built",
+        "resolveJsonModule": true,
         "target": "es6",
         "allowSyntheticDefaultImports": true,
         "noImplicitReturns": true,

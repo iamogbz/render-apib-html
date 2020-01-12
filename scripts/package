@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+rm -rf ./lib && \
+npm run build && \
+cp package.json ./lib/package.json && \
+sam build && \
+cd ./.aws-sam/build/RenderApibHtmlFunction && \
+echo 'Zipping...' && \
+zip -r dist.zip ./* &> /dev/null

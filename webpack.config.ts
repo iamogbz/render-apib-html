@@ -1,9 +1,11 @@
 import * as path from "path";
 import { Configuration } from "webpack";
+import * as nodeExternals from "webpack-node-externals";
 
 const configuration: Configuration = {
     devtool: "source-map",
     entry: "./src",
+    externals: [nodeExternals()],
     mode: "production",
     module: {
         rules: [
@@ -28,6 +30,7 @@ const configuration: Configuration = {
         extensions: [".js", ".ts"],
         modules: [path.resolve("./src"), path.resolve("./node_modules")],
     },
+    target: "node",
 };
 
 export default configuration;

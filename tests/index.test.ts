@@ -1,7 +1,8 @@
-import { helloWorld } from "../src";
+import { handler } from "../src";
+import * as mockEvent from "./mocks/helloWorldEvent.json";
 
-describe("entry", (): void => {
-    it("runs a test", (): void => {
-        expect(helloWorld()).toMatchSnapshot();
+describe("entry", () => {
+    it("runs a test", async () => {
+        expect(await handler(mockEvent)).toMatchSnapshot();
     });
 });

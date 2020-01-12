@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Serverless rendering of api blueprint files as styled html'
+
+Globals:
+  Function:
+    Timeout: 15
+
+Resources:
+  RenderApibHtmlBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Sub "${AWS::StackName}-bucket"
+  RenderApibHtmlFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lib/
+      Handler: main.handler
+      Runtime: nodejs8.10
+
+Outputs:
+  RenderApibHtmlFunction:
+    Description: "Render APIB HTML Lambda Function ARN"
+    Value: !GetAtt RenderApibHtmlFunction.Arn
+  RenderApibHtmlFunctionIamRole:
+    Description: "Implicit IAM Role created for Render APIB HTML function"
+    Value: !GetAtt RenderApibHtmlFunctionRole.Arn
