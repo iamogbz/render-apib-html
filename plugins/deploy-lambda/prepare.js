@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 
-const { verifyOptions: verifyOptions } = require("./utils");
+const { verifyOptions } = require("./utils");
 
 const prepare = (options, { nextRelease, logger }) => {
     if (!nextRelease.version) {

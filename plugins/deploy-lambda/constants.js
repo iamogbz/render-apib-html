@@ -3,6 +3,7 @@ const defaultOptions = {
     baseDir: "./",
     buildDir: ".aws-sam/build",
     deploymentBucketPrefix: "",
+    region: "us-east-1",
     template: "template.yaml",
 };
 
