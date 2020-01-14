@@ -15,12 +15,11 @@ const publish = async options => {
         "stackName",
         "template",
     ]);
-    execSync(`sam deploy \
-    --template-file ${template}
-    --stack-name ${stackName} \
-	--s3-bucket ${deploymentBucket}
-	--s3-prefix ${deploymentBucketPrefix} \
-	--capabilities CAPABILITY_IAM`);
+    execSync(
+        `sam deploy --template-file ${template}` +
+            `--stack-name ${stackName} --s3-bucket ${deploymentBucket}` +
+            `--s3-prefix ${deploymentBucketPrefix} --capabilities CAPABILITY_IAM`,
+    );
 };
 
 module.exports = {
