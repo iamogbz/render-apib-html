@@ -16,8 +16,8 @@ const publish = async options => {
         "template",
     ]);
     execSync(
-        `sam deploy --template-file ${template}` +
-            `--stack-name ${stackName} --s3-bucket ${deploymentBucket}` +
+        `sam deploy --template-file ${template} ` +
+            `--stack-name ${stackName} --s3-bucket ${deploymentBucket} ` +
             `--s3-prefix ${deploymentBucketPrefix} --capabilities CAPABILITY_IAM`,
     );
 };
