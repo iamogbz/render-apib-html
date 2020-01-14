@@ -33,7 +33,7 @@
         "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
         "typecheck": "tsc --noEmit",
         "commit": "git-cz",
-        "release": "semantic-release --branches=${GITHUB_REF#refs/heads/}}"
+        "release": "semantic-release --branches=${GITHUB_REF#refs/heads/}"
     },
     "release": {
         "dryRun": true,
