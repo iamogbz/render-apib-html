@@ -16,7 +16,7 @@ Resources:
     Properties:
       CodeUri: lib/
       Handler: main.handler
-      Runtime: nodejs8.10
+      Runtime: nodejs12.x
 
 Outputs:
   RenderApibHtmlFunction:
