@@ -7,21 +7,72 @@ Globals:
     Timeout: 15
 
 Resources:
-  RenderApibHtmlBucket:
-    Type: "AWS::S3::Bucket"
+  RenderApibHtmlFunctionRole:
+    Type: "AWS::IAM::Role"
     Properties:
-      BucketName: !Sub "${AWS::StackName}-bucket"
+        Path: "/"
+        ManagedPolicyArns:
+            - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            -
+              Sid: "AllowLambdaServiceToAssumeRole"
+              Effect: "Allow"
+              Action: 
+                - "sts:AssumeRole"
+              Principal:
+                Service: 
+                  - "lambda.amazonaws.com"
+                  - "edgelambda.amazonaws.com"
   RenderApibHtmlFunction:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lib/
       Handler: main.handler
-      Runtime: nodejs12.x
+      Runtime: nodejs10.x
+      Role: !GetAtt RenderApibHtmlFunctionRole.Arn
+  RenderApibHtmlFunctionVersion:
+    Type: AWS::Lambda::Version
+    Properties: 
+      FunctionName: !Ref RenderApibHtmlFunction
+  RenderApibHtmlDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: 'true'
+        Origins:
+          -
+            Id: S3-gh-pro-view-render-apib-html
+            DomainName: gh-pro-view.s3.amazonaws.com
+            OriginPath: /render-apib-html
+            CustomOriginConfig:
+              HTTPPort: 80
+              OriginProtocolPolicy: match-viewer
+        DefaultCacheBehavior:
+          TargetOriginId: S3-gh-pro-view-render-apib-html
+          LambdaFunctionAssociations:
+            - 
+              EventType: origin-response
+              LambdaFunctionARN: !Ref RenderApibHtmlFunctionVersion
+          ForwardedValues:
+            QueryString: 'false'
+            Headers:
+              - Origin
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: allow-all
 
 Outputs:
   RenderApibHtmlFunction:
     Description: "Render APIB HTML Lambda Function ARN"
-    Value: !GetAtt RenderApibHtmlFunction.Arn
+    Value: !Ref RenderApibHtmlFunction
+  RenderApibHtmlFunctionVersion: 
+    Description: "Render APIB HTML Lambda Function Version"
+    Value: !Ref RenderApibHtmlFunctionVersion
+  RenderApibHtmlDistribution: 
+    Description: Cloudfront Distribution Domain Name
+    Value: !GetAtt RenderApibHtmlDistribution.DomainName
   RenderApibHtmlFunctionIamRole:
-    Description: "Implicit IAM Role created for Render APIB HTML function"
-    Value: !GetAtt RenderApibHtmlFunctionRole.Arn
+    Description: "Implicit IAM Role created for Render APIB HTML Function"
+    Value: !Ref RenderApibHtmlFunctionRole

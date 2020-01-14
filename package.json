@@ -32,15 +32,34 @@
         "test-local": "sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json",
         "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
         "typecheck": "tsc --noEmit",
-        "package": "sam build && zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction",
         "commit": "git-cz",
-        "release": "semantic-release"
+        "release": "semantic-release --branches=${GITHUB_REF#refs/heads/}}"
     },
     "release": {
+        "dryRun": true,
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
-            "@semantic-release/github",
+            [
+                "./plugins/deploy-lambda",
+                {
+                    "deploymentBucket": "gh-pro-view",
+                    "deploymentPrefix": "render-apib-html-deployments",
+                    "stackName": "gh-pro-view-render-apib-html",
+                    "target": "RenderApibHtmlFunction"
+                }
+            ],
+            [
+                "@semantic-release/github",
+                {
+                    "assets": [
+                        {
+                            "path": "artifacts/RenderApibHtmlFunction.zip",
+                            "label": "RenderApibHtmlFunction"
+                        }
+                    ]
+                }
+            ],
             "@semantic-release/changelog",
             "@semantic-release/git"
         ]
