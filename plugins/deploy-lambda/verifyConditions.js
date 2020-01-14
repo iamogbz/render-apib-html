@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { requiredOptions } = require("./constants");
-const { maybeThrowErrors, requiredEnvs, verifyOptions } = require("./utils");
+const { requiredOptions, requiredEnvs } = require("./constants");
+const { maybeThrowErrors, verifyOptions } = require("./utils");
 
 const verifyConditions = options => {
     const verified = verifyOptions(options);
