@@ -2,7 +2,7 @@ const defaultOptions = {
     artifactsDir: "./artifacts",
     baseDir: "./",
     buildDir: ".aws-sam/build",
-    deploymentBucketPrefix: "",
+    deploymentBucketPrefix: "/",
     region: "us-east-1",
     template: "template.yaml",
 };

@@ -41,7 +41,7 @@
                 "./plugins/deploy-lambda",
                 {
                     "deploymentBucket": "gh-pro-view",
-                    "deploymentPrefix": "render-apib-html-deployments",
+                    "deploymentBucketPrefix": "render-apib-html-deployments",
                     "stackName": "gh-pro-view-render-apib-html",
                     "target": "RenderApibHtmlFunction"
                 }
