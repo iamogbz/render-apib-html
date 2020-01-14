@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { execSync } = require("child_process");
 
-const { verifyConfig } = require("./utils");
+const { verifyOptions: verifyOptions } = require("./utils");
 
 const publish = async options => {
     const {
@@ -9,8 +9,12 @@ const publish = async options => {
         deploymentBucketPrefix,
         stackName,
         template,
-    } = verifyConfig(options, ["stackName", "deploymentBucket"]);
-
+    } = verifyOptions(options, [
+        "deploymentBucket",
+        "deploymentBucketPrefix",
+        "stackName",
+        "template",
+    ]);
     execSync(`sam deploy \
     --template-file ${template}
     --stack-name ${stackName} \

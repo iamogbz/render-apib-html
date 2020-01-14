@@ -1,20 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const AggregateError = require("aggregate-error");
 
+const { defaultOptions } = require("./constants");
+
 const maybeThrowErrors = errors => {
     if (errors.length > 0) {
         throw new AggregateError(errors);
     }
 };
 
-const defaultOptions = {
-    artifactsDir: "./artifacts",
-    baseDir: "./",
-    buildDir: ".aws-sam/build",
-    deploymentBucketPrefix: "",
-};
-
-const verifyConfig = (options, required = []) => {
+const verifyOptions = (options, required = []) => {
     const errors = [];
     const mergedOptions = { ...defaultOptions, ...options };
     required.forEach(prop => {
@@ -28,5 +23,5 @@ const verifyConfig = (options, required = []) => {
 
 module.exports = {
     maybeThrowErrors,
-    verifyConfig,
+    verifyOptions,
 };

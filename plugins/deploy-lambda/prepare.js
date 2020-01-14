@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 
-const { verifyConfig } = require("./utils");
+const { verifyOptions: verifyOptions } = require("./utils");
 
 const prepare = (options, { nextRelease, logger }) => {
     if (!nextRelease.version) {
@@ -15,7 +15,13 @@ const prepare = (options, { nextRelease, logger }) => {
         buildDir,
         target,
         template,
-    } = verifyConfig(options, ["artifactsDir", "target"]);
+    } = verifyOptions(options, [
+        "artifactsDir",
+        "baseDir",
+        "buildDir",
+        "target",
+        "template",
+    ]);
 
     const buildFunctionPath = path.join(buildDir, target);
     execSync(`sam build -t ${template} -s ${baseDir} -b ${buildDir}`);
