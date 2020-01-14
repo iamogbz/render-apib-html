@@ -10,12 +10,12 @@ const prepare = (options, { nextRelease, logger }) => {
         logger.log("Skipping prepare as there is no next release version");
     }
     const {
-        artifacts,
+        artifactsDir,
         baseDir,
         buildDir,
         target,
         template,
-    } = verifyConfig(options, ["artifacts", "target"]);
+    } = verifyConfig(options, ["artifactsDir", "target"]);
 
     const buildFunctionPath = path.join(buildDir, target);
     execSync(`sam build -t ${template} -s ${baseDir} -b ${buildDir}`);
@@ -24,7 +24,7 @@ const prepare = (options, { nextRelease, logger }) => {
     }
     logger.log("Function built at location: %s", buildFunctionPath);
 
-    const zippedFunctionFile = path.join(artifacts, `${target}.zip`);
+    const zippedFunctionFile = path.join(artifactsDir, `${target}.zip`);
     execSync(`zip -r ${zippedFunctionFile} ${buildFunctionPath}`);
     logger.log("Function zipped at: %s", zippedFunctionFile);
 };
