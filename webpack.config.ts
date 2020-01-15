@@ -5,7 +5,7 @@ import * as CopyPlugin from "copy-webpack-plugin";
 const configuration: Configuration = {
     devtool: "source-map",
     entry: "./src",
-    externals: [nodeExternals()],
+    externals: [],
     mode: "production",
     module: {
         rules: [
