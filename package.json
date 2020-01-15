@@ -29,7 +29,6 @@
         "build": "webpack --mode=production",
         "build-watch": "webpack --mode=development --watch",
         "test": "jest",
-        "test-local": "sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json",
         "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
         "typecheck": "tsc --noEmit",
         "commit": "git-cz",
@@ -40,23 +39,12 @@
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
             [
-                "./plugins/deploy-lambda",
+                "@semantic-release/exec",
                 {
-                    "deploymentBucket": "gh-pro-view",
-                    "deploymentBucketPrefix": "render-apib-html-deployments",
-                    "stackName": "gh-pro-view-render-apib-html",
-                    "target": "RenderApibHtmlFunction"
-                }
-            ],
-            [
-                "@semantic-release/github",
-                {
-                    "assets": [
-                        {
-                            "path": "artifacts/RenderApibHtmlFunction.zip",
-                            "label": "RenderApibHtmlFunction"
-                        }
-                    ]
+                    "verifyConditionsCmd": "make package",
+                    "verifyReleaseCmd": "[ ! -z ${nextRelease.version} ]",
+                    "prepareCmd": "make test-local",
+                    "publishCmd": "make deploy"
                 }
             ]
         ]
@@ -105,6 +93,7 @@
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/travis-cli": "^8.3.4",
         "@semantic-release/changelog": "^3.0.6",
+        "@semantic-release/exec": "^4.0.0",
         "@semantic-release/git": "^8.0.0",
         "@types/aws-lambda": "^8.10.39",
         "@types/chrome": "0.0.91",
