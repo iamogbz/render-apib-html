@@ -33,10 +33,9 @@
         "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
         "typecheck": "tsc --noEmit",
         "commit": "git-cz",
-        "release": "semantic-release --branches=${GITHUB_REF#refs/heads/}"
+        "release": "semantic-release"
     },
     "release": {
-        "dryRun": true,
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
@@ -44,7 +43,7 @@
                 "./plugins/deploy-lambda",
                 {
                     "deploymentBucket": "gh-pro-view",
-                    "deploymentPrefix": "render-apib-html-deployments",
+                    "deploymentBucketPrefix": "render-apib-html-deployments",
                     "stackName": "gh-pro-view-render-apib-html",
                     "target": "RenderApibHtmlFunction"
                 }
