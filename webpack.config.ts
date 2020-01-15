@@ -1,11 +1,12 @@
 import * as path from "path";
 import { Configuration } from "webpack";
 import * as CopyPlugin from "copy-webpack-plugin";
+import * as nodeExternals from "webpack-node-externals";
 
 const configuration: Configuration = {
     devtool: "source-map",
     entry: "./src",
-    externals: [],
+    externals: [nodeExternals()],
     mode: "production",
     module: {
         rules: [
