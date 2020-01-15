@@ -1,6 +1,6 @@
 import * as path from "path";
 import { Configuration } from "webpack";
-import * as nodeExternals from "webpack-node-externals";
+import * as CopyPlugin from "copy-webpack-plugin";
 
 const configuration: Configuration = {
     devtool: "source-map",
@@ -21,6 +21,7 @@ const configuration: Configuration = {
             },
         ],
     },
+    plugins: [new CopyPlugin(["package.json"])],
     output: {
         filename: "main.js",
         libraryTarget: "commonjs",

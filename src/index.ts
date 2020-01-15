@@ -1,13 +1,13 @@
-import * as fs from "fs";
-import * as aglio from "aglio";
-import { fs as memfs } from "memfs";
-import { patchFs } from "rawFs";
+import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
-patchFs(fs, memfs);
-const atob = (data: string) => Buffer.from(data, "base64").toString();
-const btoa = (data: string) => Buffer.from(data).toString("base64");
+const encoding = "base64";
+const atob = (data: string): string => Buffer.from(data, encoding).toString();
+const btoa = (data: string): string => Buffer.from(data).toString(encoding);
 
-export const handler = async (event: any) => {
+export const handler = async (
+    event: CloudFrontResponseEvent,
+): Promise<CloudFrontResultResponse> => {
+    // eslint-disable-next-line no-console
     const response = event.Records[0].cf.response;
     const headers = Object.assign(
         response.headers || {},
@@ -28,18 +28,7 @@ export const handler = async (event: any) => {
     }
 
     const apib = atob(request.headers["x-blueprint"][0].value);
-    const html: string = await new Promise((resolve, reject) => {
-        aglio.render(
-            apib,
-            {},
-            (err: object, html: string, warnings: object) => {
-                if (err) reject(err);
-                // eslint-disable-next-line no-console
-                if (warnings) console.warn(warnings);
-                resolve(html);
-            },
-        );
-    });
+    const html = `<html><body><pre>${apib}</pre></body><html>`;
 
     return Object.assign(response, {
         body: btoa(html),
