@@ -14,7 +14,7 @@ Make a request with the api blueprint base64 encoded in the `X-Blueprint` header
 ### Endpoint
 
 ```http
-http://drm7attu3reab.cloudfront.net/
+https://d31myey2oeipxs.cloudfront.net
 ```
 
 ### Headers
@@ -35,6 +35,6 @@ http://drm7attu3reab.cloudfront.net/
 
 ```sh
 curl -X GET \
-  https://d18szazccv2vl6.cloudfront.net \
+  https://d31myey2oeipxs.cloudfront.net/v1 \
   -H 'X-Blueprint: IyBIZWxsbyBXb3JsZCE='
 ```

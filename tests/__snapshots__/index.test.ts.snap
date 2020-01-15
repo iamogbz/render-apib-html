@@ -1,9 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`entry runs a test 1`] = `
+exports[`entry adds rendered blueprint to response 1`] = `
 Object {
-  "body": "PGh0bWw+PGJvZHk+PHByZT4jIEhlbGxvIFdvcmxkITwvcHJlPjwvYm9keT48aHRtbD4=",
-  "bodyEncoding": "base64",
+  "body": "<html><body><pre># Hello World!</pre></body><html>",
+  "headers": Object {
+    "access-control-allow-headers": Array [
+      Object {
+        "key": "Access-Control-Allow-Headers",
+        "value": "X-Blueprint",
+      },
+    ],
+    "access-control-allow-methods": Array [
+      Object {
+        "key": "Access-Control-Allow-Methods",
+        "value": "GET, HEAD, OPTIONS",
+      },
+    ],
+    "access-control-allow-origin": Array [
+      Object {
+        "key": "Access-Control-Allow-Origin",
+        "value": "*",
+      },
+    ],
+  },
+  "status": "200",
+}
+`;
+
+exports[`entry matches response when no blueprint given 1`] = `
+Object {
+  "body": "No api blueprint supplied",
   "headers": Object {
     "access-control-allow-headers": Array [
       Object {
