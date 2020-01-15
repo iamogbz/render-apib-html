@@ -1,13 +1,14 @@
 import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
-const encoding = "base64";
+const encoding: "base64" = "base64";
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
 const btoa = (data: string): string => Buffer.from(data).toString(encoding);
 
 export const handler = async (
-    event: CloudFrontResponseEvent,
+    event: DeepPartial<CloudFrontResponseEvent>,
 ): Promise<CloudFrontResultResponse> => {
     // eslint-disable-next-line no-console
+    console.log(JSON.stringify(event));
     const response = event.Records[0].cf.response;
     const headers = Object.assign(
         response.headers || {},
@@ -32,7 +33,7 @@ export const handler = async (
 
     return Object.assign(response, {
         body: btoa(html),
-        bodyEncoding: "base64",
+        bodyEncoding: encoding,
         headers,
         status: "200",
     });
