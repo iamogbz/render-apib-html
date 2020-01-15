@@ -45,7 +45,7 @@ Resources:
           -
             Id: S3-gh-pro-view-render-apib-html
             DomainName: gh-pro-view.s3.amazonaws.com
-            OriginPath: /render-apib-html
+            OriginPath: /render-apib-html/index.html
             CustomOriginConfig:
               HTTPPort: 80
               OriginProtocolPolicy: match-viewer
@@ -59,6 +59,8 @@ Resources:
             QueryString: 'false'
             Headers:
               - Origin
+              - Referer
+              - X-Blueprint
             Cookies:
               Forward: none
           ViewerProtocolPolicy: allow-all
