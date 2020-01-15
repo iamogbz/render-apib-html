@@ -2,8 +2,7 @@
 
 exports[`entry runs a test 1`] = `
 Object {
-  "body": "PGh0bWw+PGJvZHk+PHByZT4jIEhlbGxvIFdvcmxkITwvcHJlPjwvYm9keT48aHRtbD4=",
-  "bodyEncoding": "base64",
+  "body": "<html><body><pre># Hello World!</pre></body><html>",
   "headers": Object {
     "access-control-allow-headers": Array [
       Object {
