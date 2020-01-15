@@ -32,11 +32,9 @@ jobs:
     - name: Build
       run: |
         npm run build
-    - name: Dry Run
-      run: |
-        npm run release -- --dry-run --branches=${GITHUB_REF#refs/heads/}
     - name: Release
       run: |
+        npm run release -- --dry-run --branches=${GITHUB_REF#refs/heads/}
         npm run release
     - name: Report
       env:

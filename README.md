@@ -7,16 +7,34 @@
 
 Serverless rendering of api blueprint files as styled html
 
-## Shell Commands
+## Usage
 
-```sh
-npm run test      # run jest tests
+Make a request with the api blueprint base64 encoded in the `X-Blueprint` header.
+
+### Endpoint
+
+```http
+https://d31myey2oeipxs.cloudfront.net
 ```
 
-```sh
-npm run commit    # run commitizen
+### Headers
+
+```json
+{
+  "X-Blueprint": "IyBIZWxsbyBXb3JsZCE="
+}
 ```
 
+### Response
+
+```html
+<h1>Hello World!</h1>
+```
+
+### Example
+
 ```sh
-npm run build     # webpack build
+curl -X GET \
+  https://d31myey2oeipxs.cloudfront.net/v1 \
+  -H 'X-Blueprint: IyBIZWxsbyBXb3JsZCE='
 ```
