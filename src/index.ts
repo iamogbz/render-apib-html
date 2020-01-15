@@ -2,7 +2,6 @@ import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
 const encoding: "base64" = "base64";
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
-const btoa = (data: string): string => Buffer.from(data).toString(encoding);
 
 export const handler = async (
     event: DeepPartial<CloudFrontResponseEvent>,
@@ -32,8 +31,7 @@ export const handler = async (
     const html = `<html><body><pre>${apib}</pre></body><html>`;
 
     return Object.assign(response, {
-        body: btoa(html),
-        bodyEncoding: encoding,
+        body: html,
         headers,
         status: "200",
     });
