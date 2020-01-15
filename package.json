@@ -37,6 +37,8 @@
     },
     "release": {
         "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
             [
                 "./plugins/deploy-lambda",
                 {
@@ -45,7 +47,20 @@
                     "stackName": "gh-pro-view-render-apib-html",
                     "target": "RenderApibHtmlFunction"
                 }
-            ]
+            ],
+            [
+                "@semantic-release/github",
+                {
+                    "assets": [
+                        {
+                            "path": "artifacts/RenderApibHtmlFunction.zip",
+                            "label": "RenderApibHtmlFunction"
+                        }
+                    ]
+                }
+            ],
+            "@semantic-release/changelog",
+            "@semantic-release/git"
         ]
     },
     "jest": {
