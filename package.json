@@ -96,9 +96,7 @@
             "pre-commit": "lint-staged"
         }
     },
-    "dependencies": {
-        "ts-lambda-api": "^0.7.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@babel/cli": "^7.8.3",
         "@babel/core": "^7.8.3",
@@ -108,6 +106,7 @@
         "@commitlint/travis-cli": "^8.3.4",
         "@semantic-release/changelog": "^3.0.6",
         "@semantic-release/git": "^8.0.0",
+        "@types/aws-lambda": "^8.10.39",
         "@types/chrome": "0.0.91",
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/jest": "^24.0.25",

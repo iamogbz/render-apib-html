@@ -2,7 +2,28 @@
 
 exports[`entry runs a test 1`] = `
 Object {
-  "body": "Hello world!",
+  "body": "PGh0bWw+PGJvZHk+PHByZT4jIEhlbGxvIFdvcmxkITwvcHJlPjwvYm9keT48aHRtbD4=",
+  "bodyEncoding": "base64",
+  "headers": Object {
+    "access-control-allow-headers": Array [
+      Object {
+        "key": "Access-Control-Allow-Headers",
+        "value": "X-Blueprint",
+      },
+    ],
+    "access-control-allow-methods": Array [
+      Object {
+        "key": "Access-Control-Allow-Methods",
+        "value": "GET, HEAD, OPTIONS",
+      },
+    ],
+    "access-control-allow-origin": Array [
+      Object {
+        "key": "Access-Control-Allow-Origin",
+        "value": "*",
+      },
+    ],
+  },
   "status": "200",
 }
 `;
