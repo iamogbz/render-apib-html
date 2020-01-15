@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`entry runs a test 1`] = `"hello world"`;
+exports[`entry runs a test 1`] = `
+Object {
+  "body": "Hello world!",
+  "status": "200",
+}
+`;

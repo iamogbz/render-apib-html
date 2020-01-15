@@ -3,16 +3,26 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GITHUB_REF: ${{ github.ref }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: 10.x
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
     - name: Install
       run: |
         npm ci
+        pip install aws-sam-cli
     - name: Lint
       run: |
         npm run lint
@@ -22,9 +32,10 @@ jobs:
     - name: Build
       run: |
         npm run build
+    - name: Dry Run
+      run: |
+        npm run release -- --dry-run --branches=${GITHUB_REF#refs/heads/}
     - name: Release
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         npm run release
     - name: Report

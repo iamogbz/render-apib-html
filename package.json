@@ -29,6 +29,7 @@
         "build": "webpack --mode=production",
         "build-watch": "webpack --mode=development --watch",
         "test": "jest",
+        "test-local": "sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json",
         "coveralls": "cat ./artifacts/coverage/lcov.info | coveralls",
         "typecheck": "tsc --noEmit",
         "commit": "git-cz",
@@ -38,7 +39,26 @@
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
-            "@semantic-release/github",
+            [
+                "./plugins/deploy-lambda",
+                {
+                    "deploymentBucket": "gh-pro-view",
+                    "deploymentBucketPrefix": "render-apib-html-deployments",
+                    "stackName": "gh-pro-view-render-apib-html",
+                    "target": "RenderApibHtmlFunction"
+                }
+            ],
+            [
+                "@semantic-release/github",
+                {
+                    "assets": [
+                        {
+                            "path": "artifacts/RenderApibHtmlFunction.zip",
+                            "label": "RenderApibHtmlFunction"
+                        }
+                    ]
+                }
+            ],
             "@semantic-release/changelog",
             "@semantic-release/git"
         ]
@@ -78,6 +98,9 @@
             "pre-commit": "lint-staged"
         }
     },
+    "dependencies": {
+        "ts-lambda-api": "^0.7.0"
+    },
     "devDependencies": {
         "@babel/cli": "^7.8.3",
         "@babel/core": "^7.8.3",
@@ -91,14 +114,16 @@
         "@types/copy-webpack-plugin": "^5.0.0",
         "@types/jest": "^24.0.25",
         "@types/node": "^13.1.6",
-        "@types/source-map": "^0.5.2",
+        "@types/source-map": "^0.5.7",
         "@types/webpack": "^4.41.2",
         "@typescript-eslint/eslint-plugin": "^2.16.0",
         "@typescript-eslint/parser": "^2.16.0",
         "acorn": "^7.1.0",
+        "aws-lambda": "^1.0.5",
         "babel-loader": "^8.0.6",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "commitizen": "^4.0.3",
+        "copy-webpack-plugin": "^5.1.1",
         "coveralls": "^3.0.9",
         "cz-conventional-changelog": "^3.0.2",
         "eslint": "^6.8.0",
