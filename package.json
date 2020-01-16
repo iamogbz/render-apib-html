@@ -121,7 +121,7 @@
         "prettier": "^1.19.1",
         "prettier-eslint": "^9.0.1",
         "rxjs": "^6.5.4",
-        "semantic-release": "^16.0.1",
+        "semantic-release": "^16.0.2",
         "ts-jest": "^24.3.0",
         "ts-node": "^8.6.2",
         "typescript": "^3.7.4",
