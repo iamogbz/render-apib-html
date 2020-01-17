@@ -9,6 +9,10 @@ describe("entry", () => {
     });
 
     it("adds rendered blueprint to response", async () => {
-        expect(await handler(mockEvent)).toMatchSnapshot();
+        const { body, ...response } = await handler(mockEvent);
+        const trimmed = body.trim();
+        expect(trimmed.endsWith("</html>")).toBe(true);
+        expect(trimmed.length).toBeGreaterThan(10000);
+        expect(response).toMatchSnapshot();
     });
 });

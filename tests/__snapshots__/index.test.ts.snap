@@ -2,7 +2,6 @@
 
 exports[`entry adds rendered blueprint to response 1`] = `
 Object {
-  "body": "<html><body><pre># Hello World!</pre></body><html>",
   "headers": Object {
     "access-control-allow-headers": Array [
       Object {
