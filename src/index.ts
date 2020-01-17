@@ -1,4 +1,3 @@
-import fs from "fs";
 import { execSync } from "child_process";
 import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
