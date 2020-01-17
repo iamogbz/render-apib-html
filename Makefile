@@ -4,6 +4,7 @@ AWS_REGION?=us-east-1
 AWS_STACK_NAME?=gh-pro-view-render-apib-html
 GIT_BRANCH?=$(shell git rev-parse --abbrev-ref HEAD)
 FUNCTION_VERSION?=$(shell git rev-parse --short HEAD)
+BUILT_TEMPLATE:=.aws-sam/build/template.yaml
 
 upstream:
 	@git remote add upstream https://github.com/iamogbz/node-js-boilerplate
@@ -26,9 +27,9 @@ test-local:
 	@sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json
 
 package:
-	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" template.yaml
 	@sam build
 	@zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction
+	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)
 
 deploy:
 	@sam deploy \
