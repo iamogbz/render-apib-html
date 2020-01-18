@@ -26,8 +26,11 @@ test-release:
 test-local:
 	@sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json
 
-package:
+build:
+	@npm run build
 	@sam build
+
+package: build
 	@zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction
 	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)
 
@@ -38,6 +41,8 @@ deploy:
 	--s3-bucket $(AWS_DEPLOYMENT_BUCKET) \
 	--s3-prefix $(AWS_DEPLOYMENT_PREFIX) \
 	--capabilities CAPABILITY_IAM
+
+build-package-deploy: package deploy
 
 ifndef VERBOSE
 .SILENT:
