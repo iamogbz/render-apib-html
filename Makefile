@@ -31,7 +31,7 @@ build:
 	@sam build
 
 package: build
-	@zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction
+	# @zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction
 	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)
 
 deploy:
