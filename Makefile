@@ -32,7 +32,7 @@ stage:
 	@echo "###################################################################"
 	@echo "START: $(STAGE)"
 	@echo "==========================================================="
-	@$(COMMAND)
+	$(COMMAND)
 	@echo "==========================================================="
 	@echo "FINISH: $(STAGE)"
 	@echo "###################################################################"
@@ -42,7 +42,7 @@ build:
 	make stage STAGE="sam build" COMMAND="sam build"
 
 package: build
-	make stage STAGE="version function" COMMAND="sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)"
+	make stage STAGE="version function" COMMAND="sed -i '' 's/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g' $(BUILT_TEMPLATE)"
 
 deploy:
 	make stage STAGE="sam deploy" COMMAND="sam deploy \
