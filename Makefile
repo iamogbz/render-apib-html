@@ -3,6 +3,8 @@ AWS_DEPLOYMENT_PREFIX:=render-apib-html-deployments
 AWS_REGION:=us-east-1
 AWS_STACK_NAME:=gh-pro-view-render-apib-html
 GIT_BRANCH:=$(shell git rev-parse --abbrev-ref HEAD)
+FUNCTION_VERSION:=$(shell git rev-parse --short HEAD)
+BUILT_TEMPLATE:=.aws-sam/build/template.yaml
 
 upstream:
 	@git remote add upstream https://github.com/iamogbz/node-js-boilerplate
@@ -18,23 +20,36 @@ eject:
 	@git reset master --soft && git add --all && git commit -m "chore: eject" -n
 	@echo "eject: branch created, complete by replacing placeholder values"
 
-test-release:
-	@npm run release -- --no-ci --branches=$(GIT_BRANCH) --prerelease --dry-run --debug
-
 test-local:
 	@sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json
 
-package:
+test-deploy: package deploy
+
+test-release:
+	@npm run release -- --no-ci --branches=$(GIT_BRANCH) --prerelease --dry-run --debug
+
+build:
+	@echo "Start: node build"
+	@npm run build
+	@echo "Finish: node build"
+	@echo "Start: sam build"
 	@sam build
-	@zip -r artifacts/dist.zip .aws-sam/build/RenderApibHtmlFunction
+	@echo "Finish: sam build"
+
+package: build
+	@echo "Start: version function $(FUNCTION_VERSION)"
+	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)
+	@echo "Finish: version function"
 
 deploy:
+	@echo "Start: sam deploy"
 	@sam deploy \
 	--region $(AWS_REGION) \
 	--stack-name $(AWS_STACK_NAME) \
 	--s3-bucket $(AWS_DEPLOYMENT_BUCKET) \
 	--s3-prefix $(AWS_DEPLOYMENT_PREFIX) \
 	--capabilities CAPABILITY_IAM
+	@echo "Finish: sam deploy"
 
 ifndef VERBOSE
 .SILENT:

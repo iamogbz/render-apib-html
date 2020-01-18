@@ -55,6 +55,13 @@ Resources:
             - 
               EventType: origin-response
               LambdaFunctionARN: !Ref RenderApibHtmlFunctionVersion
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          CachedMethods:
+            - GET
+            - HEAD
           ForwardedValues:
             QueryString: 'false'
             Headers:
