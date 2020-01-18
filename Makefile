@@ -28,28 +28,29 @@ test-deploy: package deploy
 test-release:
 	@npm run release -- --no-ci --branches=$(GIT_BRANCH) --prerelease --dry-run --debug
 
+stage:
+	@echo "###################################################################"
+	@echo "START: $(STAGE)"
+	@echo "==========================================================="
+	@$(COMMAND)
+	@echo "==========================================================="
+	@echo "FINISH: $(STAGE)"
+	@echo "###################################################################"
+
 build:
-	@echo "Start: node build"
-	@npm run build
-	@echo "Finish: node build"
-	@echo "Start: sam build"
-	@sam build
-	@echo "Finish: sam build"
+	make stage STAGE="node build" COMMAND="npm run build"
+	make stage STAGE="sam build" COMMAND="sam build"
 
 package: build
-	@echo "Start: version function $(FUNCTION_VERSION)"
-	@sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)
-	@echo "Finish: version function"
+	make stage STAGE="version function" COMMAND="sed -i "" "s/RenderApibHtmlFunctionVersion/RenderApibHtmlFunctionVersion$(FUNCTION_VERSION)/g" $(BUILT_TEMPLATE)"
 
 deploy:
-	@echo "Start: sam deploy"
-	@sam deploy \
+	make stage STAGE="sam deploy" COMMAND="sam deploy \
 	--region $(AWS_REGION) \
 	--stack-name $(AWS_STACK_NAME) \
 	--s3-bucket $(AWS_DEPLOYMENT_BUCKET) \
 	--s3-prefix $(AWS_DEPLOYMENT_PREFIX) \
-	--capabilities CAPABILITY_IAM
-	@echo "Finish: sam deploy"
+	--capabilities CAPABILITY_IAM"
 
 ifndef VERBOSE
 .SILENT:
