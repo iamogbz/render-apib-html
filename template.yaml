@@ -4,7 +4,7 @@ Description: 'Serverless rendering of api blueprint files as styled html'
 
 Globals:
   Function:
-    Timeout: 15
+    Timeout: 60
 
 Resources:
   RenderApibHtmlFunctionRole:
