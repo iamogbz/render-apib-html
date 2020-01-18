@@ -4,8 +4,10 @@ import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 const encoding: "base64" = "base64";
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
 
-const apibToHtml = (apib: string): string =>
-    execSync(`echo "${apib}" | npx snowboard html -`).toString();
+const apibToHtml = (apib: string): string => {
+    const snowboardBin = "node ./node_modules/snowboard/lib/main.js";
+    return execSync(`echo "${apib}" | ${snowboardBin} html -`).toString();
+};
 
 export const handler = async (
     event: DeepPartial<CloudFrontResponseEvent>,
