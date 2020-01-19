@@ -45,7 +45,8 @@
                     "prepareCmd": "make test-local",
                     "publishCmd": "make deploy"
                 }
-            ]
+            ],
+            "@semantic-release/github"
         ]
     },
     "jest": {
