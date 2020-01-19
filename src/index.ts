@@ -1,7 +1,13 @@
+import { execSync } from "child_process";
 import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
 const encoding: "base64" = "base64";
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
+
+const apibToHtml = (apib: string): string => {
+    const snowboardBin = "node ./node_modules/snowboard/lib/main.js";
+    return execSync(`echo "${apib}" | ${snowboardBin} html -`).toString();
+};
 
 export const handler = async (
     event: DeepPartial<CloudFrontResponseEvent>,
@@ -28,7 +34,7 @@ export const handler = async (
     }
 
     const apib = atob(request.headers["x-blueprint"][0].value);
-    const html = `<html><body><pre>${apib}</pre></body><html>`;
+    const html = apibToHtml(apib);
 
     return Object.assign(response, {
         body: html,

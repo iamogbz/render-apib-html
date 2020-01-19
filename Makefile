@@ -52,6 +52,8 @@ deploy:
 	--s3-prefix $(AWS_DEPLOYMENT_PREFIX) \
 	--capabilities CAPABILITY_IAM"
 
+build-package-deploy: package deploy
+
 ifndef VERBOSE
 .SILENT:
 endif
