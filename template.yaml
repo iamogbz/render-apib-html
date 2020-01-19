@@ -63,9 +63,6 @@ Resources:
           CachedMethods:
             - GET
             - HEAD
-          DefaultTTL: 0
-          MaxTTL: 0
-          MinTTL: 0
           ForwardedValues:
             QueryString: 'false'
             Headers:
