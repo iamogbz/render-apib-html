@@ -41,5 +41,5 @@ curl --request GET \
 
 ### Credits
 
-- Snowboard: //github.com/bukalapak/snowboard
-- Aglio: //github.com/danielgtaylor/aglio
+- [Snowboard](//github.com/bukalapak/snowboard)
+- [Aglio](//github.com/danielgtaylor/aglio) <sup>*needs maintenance*</sup>
