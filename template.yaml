@@ -32,6 +32,7 @@ Resources:
       Handler: main.handler
       Runtime: nodejs10.x
       Role: !GetAtt RenderApibHtmlFunctionRole.Arn
+      MemorySize: 512
   RenderApibHtmlFunctionVersion:
     Type: AWS::Lambda::Version
     Properties: 
