@@ -34,7 +34,12 @@ https://d31myey2oeipxs.cloudfront.net
 ### Example
 
 ```sh
-curl -X GET \
-  https://d31myey2oeipxs.cloudfront.net/v1 \
-  -H 'X-Blueprint: IyBIZWxsbyBXb3JsZCE='
+curl --request GET \
+  --location 'https://d31myey2oeipxs.cloudfront.net/v1' \
+  --header 'X-Blueprint: Rk9STUFUOiAxQQoKIyBIZWxsbyBXb3JsZA=='
 ```
+
+### Credits
+
+- Snowboard: //github.com/bukalapak/snowboard
+- Aglio: //github.com/danielgtaylor/aglio
