@@ -30,11 +30,12 @@ jobs:
       run: |
         npm test -- --ci --coverage
     - name: Build
-      run: |
-        npm run build
-    - name: Release
+      if: github.ref != 'refs/heads/master'
       run: |
         npm run release -- --dry-run --branches=${GITHUB_REF#refs/heads/}
+    - name: Release
+      if: github.ref == 'refs/heads/master'
+      run: |
         npm run release
     - name: Report
       env:
