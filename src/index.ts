@@ -1,12 +1,14 @@
 import { execSync } from "child_process";
+import { quote } from "shell-quote";
 import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
 const encoding: "base64" = "base64";
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
 
 const apibToHtml = (apib: string): string => {
+    const safeApib = quote([apib]);
     const snowboardBin = "node ./node_modules/snowboard/lib/main.js";
-    return execSync(`echo "${apib}" | ${snowboardBin} html -`).toString();
+    return execSync(`echo ${safeApib} | ${snowboardBin} html -`).toString();
 };
 
 export const handler = async (
