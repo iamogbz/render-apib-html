@@ -21,7 +21,7 @@ eject:
 	@echo "eject: branch created, complete by replacing placeholder values"
 
 test-local:
-	@sam local invoke RenderApibHtmlFunction --event tests/mocks/helloWorldEvent.json
+	@sam local invoke RenderApibHtmlFunction --event tests/mocks/pollsApibEvent.json
 
 test-deploy: package deploy
 

@@ -1,0 +1,33 @@
+{
+    "Records": [
+        {
+            "cf": {
+                "config": {
+                    "distributionId": "EXAMPLE"
+                },
+                "request": {
+                    "uri": "/",
+                    "method": "GET",
+                    "clientIp": "2001:cdba::3257:9652",
+                    "headers": {
+                        "host": [
+                            {
+                                "key": "Host",
+                                "value": "d123.cf.net"
+                            }
+                        ],
+                        "x-blueprint": [
+                            {
+                                "key": "X-Blueprint",
+                                "value": "Rk9STUFUOiAxQQoKIyBQb2xscwoKTGV0J3MgZ2V0IHlvdSBzdGFydGVkIHdpdGggW0FQSSBCbHVlcHJpbnRdKGh0dHBzOi8vaGVscC5hcGlhcnkuaW8vYXBpXzEwMS9hcGlfYmx1ZXByaW50X3R1dG9yaWFsKSEKCiMjIEhlbGxvIFdvcmxkIFtHRVQgL10KCisgUmVzcG9uc2UgMjAwIChwbGFpbi90ZXh0KQoKICAgICAgICBMZXQncyBnZXQgeW91IHN0YXJ0ZWQgd2l0aCBBUEkgQmx1ZXByaW50IQogICAgCiMjIERhdGEgc3RydWN0dXJlcwojIyMgUXVlc3Rpb24KLSBxdWVzdGlvbjogV2hhdCdzIHlvdXIgZmF2b3VyaXRlIGxhbmd1YWdlPyAoc3RyaW5nKQotIHB1Ymxpc2hlZF9hdDogYDIwMTctMDYtMTdgIChzdHJpbmcpCi0gdXJsIChzdHJpbmcpCi0gY2hvaWNlcyAoYXJyYXlbQ2hvaWNlXSkKCiMjIyBDaG9pY2UKLSBjaG9pY2UgKHN0cmluZykKLSB1cmwgKHN0cmluZykKLSB2b3RlcyAobnVtYmVyKQoKIyMgR3JvdXAgUXVlc3Rpb24KCiMjIFF1ZXN0aW9uIGxpc3QgWy9xdWVzdGlvbnNdCgorIEF0dHJpYnV0ZXMoYXJyYXlbUXVlc3Rpb25dKQoKIyMjIFF1ZXN0aW9ucyBbR0VUXQoKKyBSZXNwb25zZSAyMDAgKGFwcGxpY2F0aW9uL2pzb24pCgogICAgKyBBdHRyaWJ1dGVzKGFycmF5W1F1ZXN0aW9uXSkKCiMjIFF1ZXN0aW9uIGRldGFpbCBbL3F1ZXN0aW9ucy97cXVlc3Rpb25faWR9XQoKKyBBdHRyaWJ1dGVzKFF1ZXN0aW9uKQoKKyBQYXJhbWV0ZXJzCiAgICArIHF1ZXN0aW9uX2lkOiAxIChyZXF1aXJlZCwgbnVtYmVyKSAtIElEIG9mIHRoZSBRdWVzdGlvbiBpbiBmb3JtIG9mIGFuIGludGVnZXIKCiMjIyBWaWV3IGEgcXVlc3Rpb24gZGV0YWlsIFtHRVRdCgorIFJlc3BvbnNlIDIwMCAoYXBwbGljYXRpb24vanNvbikKCiAgICArIEF0dHJpYnV0ZXMoUXVlc3Rpb24pCgoKIyMjIENyZWF0ZSBhIG5ldyBxdWVzdGlvbiBbUE9TVF0KCgorIFJlcXVlc3QgKGFwcGxpY2F0aW9uL2pzb24pCgogICAgKyBBdHRyaWJ1dGVzCiAgICAgICAgLSBxdWVzdGlvbiAoUXVlc3Rpb24pCgorIFJlc3BvbnNlIDIwMSAoYXBwbGljYXRpb24vanNvbikKCiAgICArIEF0dHJpYnV0ZXMKICAgICAgICAtIHF1ZXN0aW9uIChRdWVzdGlvbikKCiMjIyBEZWxldGUgYSBxdWVzdGlvbiBbREVMRVRFXQoKKyBSZXNwb25zZSAyMDQ="
+                            }
+                        ]
+                    }
+                },
+                "response": {
+                    "headers": {}
+                }
+            }
+        }
+    ]
+}
