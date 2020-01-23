@@ -7,8 +7,9 @@ const atob = (data: string): string => Buffer.from(data, encoding).toString();
 
 const apibToHtml = (apib: string): string => {
     const safeApib = quote([apib]);
-    const bin = "node ./node_modules/aglio/bin/aglio.js";
-    return execSync(`echo ${safeApib} | ${bin} -i - -o -`).toString();
+    const apibToHtmlBin =
+        "node ./node_modules/aglio/bin/aglio.js -t onlicar -i - -o -";
+    return execSync(`echo ${safeApib} | ${apibToHtmlBin}`).toString();
 };
 
 export const handler = async (
