@@ -7,8 +7,8 @@ const atob = (data: string): string => Buffer.from(data, encoding).toString();
 
 const apibToHtml = (apib: string): string => {
     const safeApib = quote([apib]);
-    const snowboardBin = "node ./node_modules/snowboard/lib/main.js";
-    return execSync(`echo ${safeApib} | ${snowboardBin} html -`).toString();
+    const bin = "node ./node_modules/aglio/bin/aglio.js";
+    return execSync(`echo ${safeApib} | ${bin} -i - -o -`).toString();
 };
 
 export const handler = async (
