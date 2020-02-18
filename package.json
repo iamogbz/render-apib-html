@@ -106,7 +106,7 @@
         "@types/shell-quote": "^1.6.1",
         "@types/source-map": "^0.5.7",
         "@types/webpack": "^4.41.6",
-        "@typescript-eslint/eslint-plugin": "^2.19.2",
+        "@typescript-eslint/eslint-plugin": "^2.20.0",
         "@typescript-eslint/parser": "^2.19.2",
         "acorn": "^7.1.0",
         "aws-lambda": "^1.0.5",
