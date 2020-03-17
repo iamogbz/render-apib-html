@@ -86,7 +86,7 @@
     },
     "dependencies": {
         "shell-quote": "^1.7.2",
-        "snowboard": "^3.7.5"
+        "snowboard": "^4.0.3"
     },
     "devDependencies": {
         "@babel/cli": "^7.8.4",
