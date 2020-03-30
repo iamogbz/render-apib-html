@@ -105,7 +105,7 @@
         "@types/node": "^13.9.4",
         "@types/shell-quote": "^1.6.1",
         "@types/source-map": "^0.5.7",
-        "@types/webpack": "^4.41.8",
+        "@types/webpack": "^4.41.9",
         "@typescript-eslint/eslint-plugin": "^2.25.0",
         "@typescript-eslint/parser": "^2.25.0",
         "acorn": "^7.1.1",
