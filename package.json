@@ -86,7 +86,7 @@
     },
     "dependencies": {
         "aglio": "^2.3.0",
-        "aglio-theme-onlicar": "^1.6.4",
+        "aglio-theme-onlicar-lambda": "^1.7.0",
         "shell-quote": "^1.7.2"
     },
     "devDependencies": {
