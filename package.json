@@ -85,8 +85,9 @@
         }
     },
     "dependencies": {
-        "shell-quote": "^1.7.2",
-        "snowboard": "^3.7.5"
+        "aglio": "^2.3.0",
+        "aglio-theme-onlicar-lambda": "^1.7.0",
+        "shell-quote": "^1.7.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.8.4",
