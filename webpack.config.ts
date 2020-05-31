@@ -20,7 +20,7 @@ const configuration: Configuration = {
             },
         ],
     },
-    plugins: [new CopyPlugin(["package.json"])],
+    plugins: [new CopyPlugin({ patterns: ["package.json"] })],
     output: {
         filename: "main.js",
         libraryTarget: "commonjs",
