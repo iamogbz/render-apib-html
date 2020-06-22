@@ -90,7 +90,7 @@
         "shell-quote": "^1.7.2"
     },
     "devDependencies": {
-        "@babel/cli": "^7.10.1",
+        "@babel/cli": "^7.10.3",
         "@babel/core": "^7.10.2",
         "@babel/preset-typescript": "^7.10.1",
         "@commitlint/cli": "^8.3.5",
