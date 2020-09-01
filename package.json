@@ -116,7 +116,7 @@
         "aws-lambda": "^1.0.6",
         "babel-loader": "^8.1.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
-        "commitizen": "^4.1.2",
+        "commitizen": "^4.2.1",
         "copy-webpack-plugin": "^6.0.3",
         "coveralls": "^3.1.0",
         "cz-conventional-changelog": "^3.2.0",
