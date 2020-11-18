@@ -1,7 +1,7 @@
 # Render APIB HTML
 
-[![Dependabot badge](https://badgen.net/dependabot/iamogbz/render-apib-html/?icon=dependabot)](https://app.dependabot.com)
-[![Dependencies](https://david-dm.org/iamogbz/render-apib-html.svg)](https://github.com/iamogbz/render-apib-html)
+[![Dependabot badge](https://badgen.net/github/dependabot/iamogbz/render-apib-html/?icon=dependabot)](https://app.dependabot.com)
+[![Dependencies](https://img.shields.io/librariesio/github/iamogbz/render-apib-html)](https://github.com/iamogbz/render-apib-html)
 [![Build Status](https://github.com/iamogbz/render-apib-html/workflows/Build/badge.svg)](https://github.com/iamogbz/render-apib-html/actions)
 [![Coverage Status](https://coveralls.io/repos/github/iamogbz/render-apib-html/badge.svg?branch=master)](https://coveralls.io/github/iamogbz/render-apib-html?branch=master)
 
