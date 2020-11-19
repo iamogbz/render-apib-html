@@ -1,3 +1,1 @@
-type DeepPartial<T> = T extends object
-    ? { [K in keyof T]?: DeepPartial<T[K]> }
-    : T;
+type DeepPartial<T> = { [K in keyof T]?: DeepPartial<T[K]> };

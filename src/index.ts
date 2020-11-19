@@ -2,7 +2,7 @@ import { execSync } from "child_process";
 import { quote } from "shell-quote";
 import { CloudFrontResponseEvent, CloudFrontResultResponse } from "aws-lambda";
 
-const encoding: "base64" = "base64";
+const encoding = "base64" as const;
 const atob = (data: string): string => Buffer.from(data, encoding).toString();
 
 const apibToHtml = (apib: string): string => {
