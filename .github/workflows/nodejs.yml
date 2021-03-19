@@ -1,5 +1,9 @@
 name: Build
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,14 +34,15 @@ jobs:
       run: |
         npm test -- --ci --coverage
     - name: Build
-      if: github.ref != 'refs/heads/master'
+      if: github.ref != 'refs/heads/master' &&  github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       run: |
         npm run release -- --dry-run --branches=${GITHUB_REF#refs/heads/}
     - name: Release
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master' &&  github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       run: |
         npm run release
     - name: Report
+      if:  github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       run: |
