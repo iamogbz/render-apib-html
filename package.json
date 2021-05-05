@@ -115,7 +115,7 @@
         "@types/webpack": "^5.28.0",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "@typescript-eslint/parser": "^4.22.1",
-        "acorn": "^8.2.2",
+        "acorn": "^8.2.4",
         "aws-lambda": "^1.0.6",
         "babel-loader": "^8.2.2",
         "babel-plugin-transform-class-properties": "^6.24.1",
