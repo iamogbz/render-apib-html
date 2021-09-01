@@ -109,7 +109,7 @@
         "@types/chrome": "0.0.154",
         "@types/copy-webpack-plugin": "^8.0.1",
         "@types/jest": "^27.0.1",
-        "@types/node": "^16.7.8",
+        "@types/node": "^16.7.10",
         "@types/shell-quote": "^1.7.1",
         "@types/source-map": "^0.5.7",
         "@types/webpack": "^5.28.0",
