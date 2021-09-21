@@ -108,7 +108,7 @@
         "@types/aws-lambda": "^8.10.83",
         "@types/chrome": "0.0.157",
         "@types/copy-webpack-plugin": "^8.0.1",
-        "@types/jest": "^27.0.1",
+        "@types/jest": "^27.0.2",
         "@types/node": "^16.9.4",
         "@types/shell-quote": "^1.7.1",
         "@types/source-map": "^0.5.7",
