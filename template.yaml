@@ -19,10 +19,10 @@ Resources:
             -
               Sid: "AllowLambdaServiceToAssumeRole"
               Effect: "Allow"
-              Action: 
+              Action:
                 - "sts:AssumeRole"
               Principal:
-                Service: 
+                Service:
                   - "lambda.amazonaws.com"
                   - "edgelambda.amazonaws.com"
   RenderApibHtmlFunction:
@@ -30,12 +30,12 @@ Resources:
     Properties:
       CodeUri: lib/
       Handler: main.handler
-      Runtime: nodejs10.x
+      Runtime: nodejs12.x
       Role: !GetAtt RenderApibHtmlFunctionRole.Arn
       MemorySize: 512
   RenderApibHtmlFunctionVersion:
     Type: AWS::Lambda::Version
-    Properties: 
+    Properties:
       FunctionName: !Ref RenderApibHtmlFunction
   RenderApibHtmlDistribution:
     Type: AWS::CloudFront::Distribution
@@ -53,7 +53,7 @@ Resources:
         DefaultCacheBehavior:
           TargetOriginId: S3-gh-pro-view-render-apib-html
           LambdaFunctionAssociations:
-            - 
+            -
               EventType: origin-response
               LambdaFunctionARN: !Ref RenderApibHtmlFunctionVersion
           AllowedMethods:
@@ -77,10 +77,10 @@ Outputs:
   RenderApibHtmlFunction:
     Description: "Render APIB HTML Lambda Function ARN"
     Value: !Ref RenderApibHtmlFunction
-  RenderApibHtmlFunctionVersion: 
+  RenderApibHtmlFunctionVersion:
     Description: "Render APIB HTML Lambda Function Version"
     Value: !Ref RenderApibHtmlFunctionVersion
-  RenderApibHtmlDistribution: 
+  RenderApibHtmlDistribution:
     Description: Cloudfront Distribution Domain Name
     Value: !GetAtt RenderApibHtmlDistribution.DomainName
   RenderApibHtmlFunctionIamRole:
