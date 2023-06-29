@@ -94,7 +94,7 @@
     "dependencies": {
         "aglio": "^2.3.0",
         "aglio-theme-onlicar-lambda": "^1.7.0",
-        "shell-quote": "^1.7.4"
+        "shell-quote": "^1.8.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.22.5",
