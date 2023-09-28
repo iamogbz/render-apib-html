@@ -108,7 +108,7 @@
         "@types/aws-lambda": "^8.10.122",
         "@types/chrome": "0.0.246",
         "@types/jest": "^27.5.0",
-        "@types/node": "^20.7.0",
+        "@types/node": "^20.7.1",
         "@types/shell-quote": "^1.7.2",
         "@types/webpack": "^5.28.3",
         "@typescript-eslint/eslint-plugin": "^6.7.3",
