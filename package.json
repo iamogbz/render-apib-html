@@ -110,7 +110,7 @@
         "@types/jest": "^27.5.0",
         "@types/node": "^20.8.10",
         "@types/shell-quote": "^1.7.4",
-        "@types/webpack": "^5.28.4",
+        "@types/webpack": "^5.28.5",
         "@typescript-eslint/eslint-plugin": "^6.10.0",
         "@typescript-eslint/parser": "^6.10.0",
         "acorn": "^8.11.2",
