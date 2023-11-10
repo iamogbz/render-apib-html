@@ -106,7 +106,7 @@
         "@semantic-release/exec": "^6.0.3",
         "@semantic-release/git": "^10.0.1",
         "@types/aws-lambda": "^8.10.126",
-        "@types/chrome": "0.0.250",
+        "@types/chrome": "0.0.251",
         "@types/jest": "^27.5.0",
         "@types/node": "^20.9.0",
         "@types/shell-quote": "^1.7.4",
